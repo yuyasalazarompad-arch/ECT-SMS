@@ -1,0 +1,27 @@
+# Local environment configuration and secrets
+
+.env
+.env.*
+!.env.example
+
+# Dependencies
+
+/vendor/
+/node_modules/
+
+# Temporary files and logs
+
+*.log
+*.tmp
+
+# Operating system files
+
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Local database connection testing
+/test_connection.php
+
+# Local database credentials
+/config/database.php
