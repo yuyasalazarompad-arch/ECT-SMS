@@ -1,0 +1,698 @@
+/* ==========================================================================
+   Fullbright College — role-aware landing and workspace access
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Header account
+   -------------------------------------------------------------------------- */
+
+.dash-user {
+    display: flex;
+    min-width: 0;
+    align-items: center;
+    gap: .65rem;
+    padding-left: 12px;
+    border-left: 1px solid rgba(255, 255, 255, .18);
+}
+
+.dash-user__avatar {
+    display: grid;
+    width: 34px;
+    height: 34px;
+    flex: 0 0 34px;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--gold-soft);
+    color: var(--navy);
+    font-size: .64rem;
+    font-weight: 800;
+    letter-spacing: .02em;
+}
+
+.dash-user__copy {
+    min-width: 0;
+    line-height: 1.1;
+}
+
+.dash-user__copy strong {
+    display: block;
+    overflow: hidden;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.dash-user__copy small {
+    display: block;
+    margin-top: 2px;
+    overflow: hidden;
+    color: rgba(255, 255, 255, .6);
+    font-size: 7px;
+    font-weight: 800;
+    letter-spacing: .14em;
+    text-overflow: ellipsis;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+/* --------------------------------------------------------------------------
+   Dashboard shell
+   -------------------------------------------------------------------------- */
+
+.dash-main {
+    width: min(1240px, 100% - 2.5rem);
+    margin: 0 auto;
+    padding: clamp(2rem, 4vw, 3.2rem) 0 2rem;
+}
+
+.dash-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) auto;
+    min-width: 0;
+    align-items: end;
+    gap: clamp(1.2rem, 4vw, 3.5rem);
+    padding-bottom: clamp(1.7rem, 3.2vw, 2.5rem);
+    animation: rise .7s cubic-bezier(.2, .7, .2, 1) both;
+}
+
+.dash-hero h1 {
+    max-width: 18ch;
+    font-size: clamp(2.35rem, 4.4vw, 4rem);
+}
+
+.dash-hero .auth-lede {
+    margin-top: 1rem;
+}
+
+.dash-hero .auth-lede strong {
+    color: var(--ink);
+    font-weight: 700;
+}
+
+.session-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.1rem 1.4rem;
+    border: 1px solid var(--line);
+    border-radius: 1.05rem;
+    background: var(--card);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .72);
+}
+
+.session-card .ping {
+    width: .62rem;
+    height: .62rem;
+    flex: 0 0 .62rem;
+    border-radius: 50%;
+    background: var(--green);
+    animation: ping 2.4s ease-out infinite;
+}
+
+.session-card strong {
+    display: block;
+    font-family: var(--display);
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: -.03em;
+    line-height: 1;
+}
+
+.session-card small {
+    display: block;
+    margin-top: .3rem;
+    color: var(--ink-soft);
+    font-size: .57rem;
+    font-weight: 800;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+}
+
+@keyframes ping {
+    0% { box-shadow: 0 0 0 0 rgba(28, 122, 79, .4); }
+    75%, 100% { box-shadow: 0 0 0 11px transparent; }
+}
+
+/* KPI tiles --------------------------------------------------------------- */
+
+.dash-kpis {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: .9rem;
+}
+
+.dash-kpi {
+    position: relative;
+    min-width: 0;
+    overflow: hidden;
+    padding: 1.15rem 1.25rem 1.05rem;
+    border: 1px solid var(--line);
+    border-radius: 1.05rem;
+    background: var(--card);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .72);
+    animation: rise .7s cubic-bezier(.2, .7, .2, 1) both;
+}
+
+.dash-kpi::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2.6rem;
+    height: .22rem;
+    content: "";
+    border-radius: 0 0 .22rem 0;
+    background: var(--accent, var(--blue));
+}
+
+.dash-kpi:nth-child(2) { animation-delay: .07s; }
+.dash-kpi:nth-child(3) { animation-delay: .14s; }
+.dash-kpi:nth-child(4) { animation-delay: .21s; }
+
+.kpi-label {
+    display: flex;
+    align-items: center;
+    gap: .55rem;
+    color: var(--ink-soft);
+    font-size: .55rem;
+    font-weight: 800;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+}
+
+.kpi-dot {
+    width: .5rem;
+    height: .5rem;
+    flex: 0 0 .5rem;
+    border-radius: 50%;
+    background: var(--accent, var(--blue));
+}
+
+.kpi-num {
+    display: block;
+    margin-top: .6rem;
+    font-family: var(--display);
+    font-size: clamp(1.8rem, 2.4vw, 2.35rem);
+    font-weight: 600;
+    letter-spacing: -.035em;
+    line-height: 1;
+}
+
+.kpi-num.is-text {
+    font-size: clamp(1.18rem, 1.65vw, 1.5rem);
+    line-height: 1.15;
+}
+
+.kpi-hint {
+    display: block;
+    margin-top: .38rem;
+    color: var(--ink-soft);
+    font-size: .67rem;
+    line-height: 1.4;
+}
+
+/* Workspace cards --------------------------------------------------------- */
+
+.dash-section {
+    margin-top: clamp(2rem, 3.4vw, 2.7rem);
+}
+
+.section-head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.section-head .eyebrow {
+    margin: 0 0 .4rem;
+}
+
+.section-head h2 {
+    margin: 0;
+    font-family: var(--display);
+    font-size: clamp(1.5rem, 2.2vw, 1.9rem);
+    font-weight: 600;
+    letter-spacing: -.03em;
+    line-height: 1.1;
+}
+
+.chip {
+    display: inline-flex;
+    min-height: 1.9rem;
+    align-items: center;
+    padding: 0 .75rem;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: rgba(255, 253, 248, .7);
+    color: var(--ink-soft);
+    font-size: .55rem;
+    font-weight: 800;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.system-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: .9rem;
+}
+
+.system-card {
+    position: relative;
+    display: flex;
+    min-width: 0;
+    min-height: 13.2rem;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 1.2rem 1.25rem 1.1rem;
+    border: 1px solid var(--line);
+    border-radius: 1.05rem;
+    background: var(--card);
+    color: inherit;
+    text-decoration: none;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .72);
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+
+.system-card::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2.6rem;
+    height: .22rem;
+    content: "";
+    border-radius: 0 0 .22rem 0;
+    background: var(--accent, var(--blue));
+}
+
+.system-card:hover {
+    border-color: rgba(19, 35, 59, .25);
+    box-shadow: 0 18px 42px rgba(19, 35, 59, .1);
+    transform: translateY(-2px);
+}
+
+.system-card:focus-visible {
+    outline: 2px solid var(--blue);
+    outline-offset: 3px;
+}
+
+.system-top {
+    display: flex;
+    align-items: center;
+    gap: .55rem;
+}
+
+.system-dot {
+    width: .5rem;
+    height: .5rem;
+    flex: 0 0 .5rem;
+    border-radius: 50%;
+    background: var(--accent, var(--blue));
+}
+
+.system-context {
+    color: var(--ink-soft);
+    font-size: .54rem;
+    font-weight: 800;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+}
+
+.system-card h3 {
+    margin: 1rem 0 0;
+    font-family: var(--display);
+    font-size: 1.3rem;
+    font-weight: 600;
+    letter-spacing: -.025em;
+    line-height: 1.15;
+}
+
+.system-card p {
+    margin: .4rem 0 0;
+    color: var(--ink-soft);
+    font-size: .76rem;
+    line-height: 1.6;
+}
+
+.system-foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: .75rem;
+    margin-top: auto;
+    padding-top: 1.1rem;
+    color: var(--blue);
+    font-size: .56rem;
+    font-weight: 800;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+}
+
+.system-foot .arrow {
+    font-size: 1rem;
+    line-height: 1;
+}
+
+/* Bottom panels ----------------------------------------------------------- */
+
+.dash-bottom {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(300px, .8fr);
+    gap: .9rem;
+    margin-top: clamp(2rem, 3.4vw, 2.7rem);
+}
+
+.panel {
+    min-width: 0;
+    padding: 1.25rem;
+    border: 1px solid var(--line);
+    border-radius: 1.05rem;
+    background: var(--card);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .72);
+}
+
+.panel-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: .75rem;
+    margin-bottom: 1rem;
+}
+
+.panel-head h2 {
+    margin: 0;
+    font-family: var(--display);
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: -.025em;
+    line-height: 1.15;
+}
+
+.permission-row {
+    display: grid;
+    grid-template-columns: minmax(7rem, .4fr) minmax(0, 1fr);
+    gap: 1rem;
+    padding: .7rem 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.permission-row:first-child {
+    padding-top: 0;
+}
+
+.permission-row:last-child {
+    padding-bottom: 0;
+    border-bottom: 0;
+}
+
+.permission-key {
+    color: var(--ink-soft);
+    font-size: .56rem;
+    font-weight: 800;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+}
+
+.permission-value {
+    color: var(--ink);
+    font-size: .79rem;
+    line-height: 1.5;
+}
+
+.panel-note {
+    margin: 1rem 0 0;
+    padding-top: 1rem;
+    border-top: 1px solid var(--line);
+    color: var(--ink-soft);
+    font-size: .69rem;
+    line-height: 1.6;
+}
+
+.account-card {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    padding: .85rem;
+    border: 1px solid var(--line);
+    border-radius: .78rem;
+    background: rgba(255, 255, 255, .45);
+}
+
+.account-avatar {
+    display: grid;
+    width: 2.6rem;
+    height: 2.6rem;
+    flex: 0 0 2.6rem;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--gold-soft);
+    color: var(--navy);
+    font-size: .72rem;
+    font-weight: 800;
+}
+
+.account-copy strong {
+    display: block;
+    font-family: var(--display);
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: -.015em;
+    line-height: 1.2;
+}
+
+.account-copy small {
+    display: block;
+    margin-top: .12rem;
+    color: var(--ink-soft);
+    font-size: .62rem;
+}
+
+.account-meta {
+    display: grid;
+    gap: .45rem;
+    margin: 1rem 0 0;
+}
+
+.account-meta div {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-bottom: .45rem;
+    border-bottom: 1px solid var(--line);
+}
+
+.account-meta dt {
+    color: var(--ink-soft);
+    font-size: .55rem;
+    font-weight: 800;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+}
+
+.account-meta dd {
+    margin: 0;
+    color: var(--ink);
+    font-size: .71rem;
+    text-align: right;
+}
+
+.logout-button {
+    display: flex;
+    width: 100%;
+    min-height: 2.6rem;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    margin-top: 1rem;
+    border: 1px solid rgba(200, 16, 46, .25);
+    border-radius: .65rem;
+    background: rgba(200, 16, 46, .05);
+    color: var(--red);
+    cursor: pointer;
+    font-size: .58rem;
+    font-weight: 800;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    transition: background .15s ease, border-color .15s ease;
+}
+
+.logout-button:hover {
+    border-color: rgba(200, 16, 46, .4);
+    background: rgba(200, 16, 46, .1);
+}
+
+.logout-button:focus-visible {
+    outline: 2px solid var(--red);
+    outline-offset: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   Workspace access page
+   -------------------------------------------------------------------------- */
+
+.workspace-main {
+    width: min(1000px, 100% - 2.5rem);
+    margin: 0 auto;
+    padding: clamp(2.4rem, 5vw, 4.4rem) 0 3rem;
+}
+
+.workspace-hero {
+    max-width: 760px;
+    animation: rise .7s cubic-bezier(.2, .7, .2, 1) both;
+}
+
+.workspace-hero h1 {
+    max-width: 20ch;
+    font-size: clamp(2.3rem, 4.4vw, 3.9rem);
+}
+
+.workspace-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: .9rem;
+    margin-top: 2rem;
+}
+
+.workspace-panel {
+    padding: 1.3rem;
+    border: 1px solid var(--line);
+    border-radius: 1.05rem;
+    background: var(--card);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .72);
+}
+
+.workspace-panel h2 {
+    margin: 0 0 .75rem;
+    font-family: var(--display);
+    font-size: 1.3rem;
+    font-weight: 600;
+    letter-spacing: -.025em;
+}
+
+.access-granted {
+    display: flex;
+    align-items: center;
+    gap: .65rem;
+    margin-bottom: 1rem;
+    padding: .8rem .9rem;
+    border: 1px solid rgba(28, 122, 79, .24);
+    border-radius: .7rem;
+    background: rgba(28, 122, 79, .07);
+    color: #145c3b;
+    font-size: .72rem;
+    font-weight: 700;
+}
+
+.access-granted .status-dot {
+    width: .5rem;
+    height: .5rem;
+    flex: 0 0 .5rem;
+    border-radius: 50%;
+    background: var(--green);
+}
+
+.workspace-panel p {
+    margin: 0;
+    color: var(--ink-soft);
+    font-size: .8rem;
+    line-height: 1.65;
+}
+
+.workspace-panel p + p {
+    margin-top: .7rem;
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: .45rem;
+    margin-top: 1.2rem;
+    color: var(--blue);
+    font-size: .6rem;
+    font-weight: 800;
+    letter-spacing: .13em;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 1120px) {
+    .dash-kpis {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .system-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .dash-bottom {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 900px) {
+    .dash-hero {
+        grid-template-columns: 1fr;
+        align-items: start;
+    }
+
+    .session-card {
+        justify-self: start;
+    }
+
+    .dash-user__copy {
+        display: none;
+    }
+}
+
+@media (max-width: 720px) {
+    .dash-main,
+    .workspace-main {
+        width: calc(100% - 2rem);
+    }
+
+    .dash-kpis,
+    .system-grid,
+    .workspace-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dash-hero h1,
+    .workspace-hero h1 {
+        max-width: 16ch;
+        font-size: clamp(2.25rem, 10vw, 3.2rem);
+    }
+
+    .section-head {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: .55rem;
+    }
+
+    .permission-row {
+        grid-template-columns: 1fr;
+        gap: .2rem;
+    }
+
+    .dash-user {
+        padding-left: 8px;
+    }
+}
+
+@media (max-width: 420px) {
+    .session-card {
+        width: 100%;
+    }
+
+    .dash-user {
+        display: none;
+    }
+}
