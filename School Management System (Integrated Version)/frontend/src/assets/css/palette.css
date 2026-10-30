@@ -1,0 +1,272 @@
+/*
+ * Fullbright College shared color system.
+ * Warm institutional neutrals with restrained navy, blue and antique-gold accents.
+ * Red, green and amber remain reserved for brand/status meaning.
+ */
+:root {
+    --theme-paper: #f5f3ed;
+    --theme-paper-deep: #eae4d8;
+    --theme-paper-light: #faf8f2;
+    --theme-surface: #fffefa;
+    --theme-ink: #17263c;
+    --theme-muted: #566579;
+    --theme-faint: #758295;
+    --theme-navy: #102b52;
+    --theme-navy-deep: #0a1f3d;
+    --theme-blue: #315f82;
+    --theme-blue-deep: #254b69;
+    --theme-blue-soft: #e8eef3;
+    --theme-blue-softer: #f4f6f8;
+    --theme-red: #b42333;
+    --theme-red-deep: #8f1d2b;
+    --theme-red-soft: #fbeaec;
+    --theme-gold: #b38a3e;
+    --theme-gold-soft: #f2e8ce;
+    --theme-green: #2e7652;
+    --theme-green-soft: #e8f3ed;
+    --theme-amber: #805a1e;
+    --theme-amber-soft: #f5eedc;
+    --theme-line: rgba(23, 38, 60, .14);
+    --theme-line-strong: rgba(23, 38, 60, .24);
+    --theme-shadow: 0 18px 45px rgba(16, 43, 82, .08);
+
+    /* Authentication and dashboard token bridge */
+    --paper: var(--theme-paper);
+    --paper-deep: var(--theme-paper-deep);
+    --ink: var(--theme-ink);
+    --ink-soft: var(--theme-muted);
+    --navy: var(--theme-navy);
+    --navy-deep: var(--theme-navy-deep);
+    --blue: var(--theme-blue);
+    --red: var(--theme-red);
+    --gold: var(--theme-gold);
+    --gold-soft: var(--theme-gold-soft);
+    --green: var(--theme-green);
+    --line: var(--theme-line);
+    --line-strong: var(--theme-line-strong);
+    --card: var(--theme-surface);
+    --shadow: var(--theme-shadow);
+
+    /* Attendance token bridge */
+    --attn-bg: var(--theme-paper);
+    --attn-bg-deep: var(--theme-paper-deep);
+    --attn-card: var(--theme-surface);
+    --attn-ink: var(--theme-ink);
+    --attn-ink-soft: var(--theme-muted);
+    --attn-ink-faint: var(--theme-faint);
+    --attn-navy: var(--theme-navy);
+    --attn-navy-deep: var(--theme-navy-deep);
+    --attn-blue: var(--theme-blue);
+    --attn-blue-deep: var(--theme-blue-deep);
+    --attn-sky: var(--theme-blue-soft);
+    --attn-sky-soft: var(--theme-blue-softer);
+    --attn-red: var(--theme-red);
+    --attn-red-deep: var(--theme-red-deep);
+    --attn-green: var(--theme-green);
+    --attn-green-soft: var(--theme-green-soft);
+    --attn-amber: var(--theme-amber);
+    --attn-amber-soft: var(--theme-amber-soft);
+    --attn-gold: var(--theme-gold);
+    --attn-gold-soft: var(--theme-gold-soft);
+    --attn-line: var(--theme-line);
+    --attn-line-strong: var(--theme-line-strong);
+    --attn-shadow: var(--theme-shadow);
+
+    /* Finance token bridge */
+    --fin-paper: var(--theme-paper);
+    --fin-paper-deep: var(--theme-paper-deep);
+    --fin-ink: var(--theme-ink);
+    --fin-ink-soft: var(--theme-muted);
+    --fin-navy: var(--theme-navy);
+    --fin-navy-deep: var(--theme-navy-deep);
+    --fin-blue: var(--theme-blue);
+    --fin-red: var(--theme-red);
+    --fin-gold: var(--theme-gold);
+    --fin-gold-soft: var(--theme-gold-soft);
+    --fin-green: var(--theme-green);
+    --fin-line: var(--theme-line);
+    --fin-line-strong: var(--theme-line-strong);
+    --fin-card: var(--theme-surface);
+    --fin-shadow: var(--theme-shadow);
+
+    /* Enrollment token bridge */
+    --enr-paper: var(--theme-paper);
+    --enr-paper-deep: var(--theme-paper-deep);
+    --enr-ink: var(--theme-ink);
+    --enr-ink-soft: var(--theme-muted);
+    --enr-navy: var(--theme-navy);
+    --enr-navy-deep: var(--theme-navy-deep);
+    --enr-blue: var(--theme-blue);
+    --enr-red: var(--theme-red);
+    --enr-gold: var(--theme-gold);
+    --enr-gold-soft: var(--theme-gold-soft);
+    --enr-green: var(--theme-green);
+    --enr-line: var(--theme-line);
+    --enr-line-strong: var(--theme-line-strong);
+    --enr-card: var(--theme-surface);
+    --enr-shadow: var(--theme-shadow);
+}
+
+html {
+    background:
+        linear-gradient(rgba(23, 38, 60, .035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(23, 38, 60, .035) 1px, transparent 1px),
+        radial-gradient(circle at 88% -8%, rgba(179, 138, 62, .12), transparent 36%),
+        radial-gradient(circle at -8% 92%, rgba(49, 95, 130, .075), transparent 34%),
+        linear-gradient(135deg, var(--theme-paper) 0%, var(--theme-paper-light) 48%, var(--theme-paper-deep) 100%);
+    background-color: var(--theme-paper);
+}
+
+body {
+    color: var(--theme-ink);
+    background:
+        linear-gradient(rgba(23, 38, 60, .035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(23, 38, 60, .035) 1px, transparent 1px),
+        radial-gradient(circle at 88% -8%, rgba(179, 138, 62, .12), transparent 36%),
+        radial-gradient(circle at -8% 92%, rgba(49, 95, 130, .075), transparent 34%),
+        linear-gradient(135deg, var(--theme-paper) 0%, var(--theme-paper-light) 48%, var(--theme-paper-deep) 100%);
+    background-attachment: fixed;
+    background-size: 76px 76px, 76px 76px, auto, auto, auto;
+}
+
+body.dashboard-theme {
+    --paper: var(--theme-paper);
+    --paper-deep: var(--theme-paper-deep);
+    --ink: var(--theme-ink);
+    --ink-soft: var(--theme-muted);
+    --navy: var(--theme-navy);
+    --navy-deep: var(--theme-navy-deep);
+    --blue: var(--theme-blue);
+    --red: var(--theme-red);
+    --gold: var(--theme-gold);
+    --gold-soft: var(--theme-gold-soft);
+    --green: var(--theme-green);
+    --line: var(--theme-line);
+    --line-strong: var(--theme-line-strong);
+    --card: var(--theme-surface);
+    --shadow: var(--theme-shadow);
+    background:
+        radial-gradient(circle at 88% -8%, rgba(179, 138, 62, .12), transparent 36%),
+        radial-gradient(circle at -8% 92%, rgba(49, 95, 130, .075), transparent 34%),
+        linear-gradient(135deg, var(--theme-paper) 0%, var(--theme-paper-light) 48%, var(--theme-paper-deep) 100%);
+}
+
+.auth-topbar,
+.attn-topbar,
+.fin-topbar,
+.enr-topbar,
+body.dashboard-theme .auth-topbar {
+    border-top: 3px solid var(--theme-gold);
+    background:
+        radial-gradient(circle at 82% -42%, rgba(179, 138, 62, .18), transparent 46%),
+        linear-gradient(108deg, var(--theme-navy-deep) 0%, var(--theme-navy) 54%, #1b4368 100%);
+    color: #fff;
+}
+
+.auth-topbar::after,
+.attn-topbar::after,
+.fin-topbar::after,
+.enr-topbar::after,
+body.dashboard-theme .auth-topbar::after {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(242, 232, 206, .62) 22%, rgba(255, 255, 255, .16) 62%, transparent);
+}
+
+.attn-topbar::before {
+    background: linear-gradient(135deg, rgba(179, 138, 62, .26), transparent 66%);
+    opacity: .55;
+}
+
+.login-panel::before {
+    background: linear-gradient(90deg, var(--theme-navy) 0 62%, var(--theme-gold) 62% 100%);
+}
+
+.auth-main h1 em,
+.dash-hero h1 em,
+.workspace-main h1 em,
+body.dashboard-theme h1 em {
+    color: var(--theme-blue);
+}
+
+.attn-btn--primary {
+    border-color: var(--theme-navy);
+    background: linear-gradient(135deg, var(--theme-navy), #1b4368);
+    box-shadow: 0 8px 18px rgba(16, 43, 82, .2);
+}
+
+.attn-btn--primary:hover {
+    background: linear-gradient(135deg, var(--theme-navy-deep), var(--theme-navy));
+    box-shadow: 0 10px 22px rgba(16, 43, 82, .24);
+}
+
+.attn-card--accent::before {
+    background: linear-gradient(90deg, var(--theme-navy) 0 76%, var(--theme-gold) 76% 100%);
+}
+
+.attn-subnav__link.is-active,
+.fin-subnav__link.is-active,
+.enr-subnav__link.is-active {
+    border-bottom-color: var(--theme-gold);
+    background: rgba(179, 138, 62, .075);
+    color: var(--theme-navy);
+}
+
+.fin-card--striped::before,
+.enr-card--striped::before,
+.enr-hero__copy::before {
+    background: linear-gradient(90deg, var(--theme-navy) 0 64%, var(--theme-gold) 64% 100%);
+}
+
+.enr-eyebrow,
+.enr-hero__panel-head small,
+.enr-page-head__badge small,
+.attn-breadcrumb strong {
+    color: var(--theme-blue);
+}
+
+.fin-stat__icon.is-blue,
+.fin-notification__icon {
+    background: var(--theme-blue-soft);
+    color: var(--theme-blue);
+}
+
+.fin-stat__icon.is-gold {
+    background: var(--theme-gold-soft);
+    color: var(--theme-amber);
+}
+
+.fin-stat__icon.is-green {
+    background: var(--theme-green-soft);
+    color: var(--theme-green);
+}
+
+.fin-stat__icon.is-red {
+    background: var(--theme-red-soft);
+    color: var(--theme-red);
+}
+
+.fin-badge.is-paid {
+    background: var(--theme-green-soft);
+    color: var(--theme-green);
+}
+
+.fin-badge.is-partial {
+    background: var(--theme-amber-soft);
+    color: var(--theme-amber);
+}
+
+.fin-badge.is-overdue {
+    background: var(--theme-red-soft);
+    color: var(--theme-red-deep);
+}
+
+.fin-badge.is-unpaid {
+    background: var(--theme-blue-soft);
+    color: var(--theme-blue-deep);
+}
+
+.enr-pill--open,
+.enr-dates__state {
+    background: var(--theme-green-soft);
+    color: var(--theme-green);
+}
